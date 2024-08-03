@@ -3,190 +3,53 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>玻璃效果悬停列表</title>
+	<title>奇门遁甲</title>
 	<style type="text/css">
-		* {
+		*{
 			margin: 0;
 			padding: 0;
+		}
+		.taiji {
+			animation: taijiRotate 3s infinite linear;
+		}
+		.taiji::before{
 			box-sizing: border-box;
-		}
-		section {
-			position: relative;
-			background: #161623;
-			min-height: 100vh;
-			overflow: hidden;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		section::before {
 			content: '';
 			position: absolute;
-			width: 400px;
-			height: 400px;
-			background: linear-gradient(#ffc107, #e91e63);
+			left: 0;
+			top: 100%;
+			width: 118px;
+			height: 118px;
+			border: 48px solid #000;
 			border-radius: 50%;
-			transform: translate(-250px, -120px);
+			background-color: #fff;
+			transform: translate(0, -50%);
 		}
-		section::after{
+		.taiji::after{
+			box-sizing: border-box;
 			content: '';
 			position: absolute;
-			width: 350px;
-			height: 350px;
-			background: linear-gradient(#2196f3, #31ff38);
+			right: 0;
+			top: 0;
+			width: 118px;
+			height: 118px;
+			border: 48px solid #fff;
 			border-radius: 50%;
-			transform: translate(250px, 150px);
+			background-color: #000;
+			transform: translate(0, 50%);
 		}
-		.box {
-			position: relative;
-			min-width: 550px;
-			min-height: 400px;
-			background: rgba(255, 255, 255, 0.1);
-			box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-			border: 1px solid rgba(255, 255, 255, 0.5);
-			border-right: 1px solid rgba(255, 255, 255, 0.2);
-			border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-			border-radius: 10px;
-			z-index: 10;
-			padding: 20px;
-			backdrop-filter: blur(25px);
-		}
-		.box h3 {
-			color: #fff;
-			margin-bottom: 20px;
-		}
-		.box .list {
-			position: relative;
-			display: flex;
-			padding: 10px;
-			background: rgba(0, 0, 0, 0.1);
-			border-radius: 10px;
-			margin: 10px 0;
-			cursor: pointer;
-			
-			overflow: hidden;
-		}
-		.box .list:hover {
-			background: #fff;
-			box-shadow: -15px 30px 50px rgba(0, 0, 0, 0.5);
-			transform: scale(1.05) translateX(30px) translateY(-15px);
-			z-index: 1000;
-		}
-		.box .list .avator span {
-			color: #fff;
-			padding-right: 10px;
-		}
-		.box .list .content {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			color: #fff;
-		}
-		.box .list .content .rank {
-			position: absolute;
-			right: -50px;
-			color: #03a9f4;
-			transition: 0.5s;
-			font-size: 2em;
-		}
-		.box .list .content .rank small {
-			font-weight: 500;
-			opacity: 0.25;
-		}
-		.box .list:hover .content .rank {
-			right: 20px;
-		}
-		.box .list .content h4 {
-			line-height: 1.2em;
-			font-weight: 600;
-			transition: 0.5s;
-		}
-		.box .list .content p {
-			font-size: 0.75em;
-			transition: 0.5s;
-		}
-		.box .list:hover .avator span,
-		.box .list:hover .content h4,
-		.box .list:hover .content p {
-			color: #333;
+		@keyframes taijiRotate {
+			0%{
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
 		}
 	</style>
+	<script type="module" src="./index.js"></script>
 </head>
 <body>
-<section>
-	<div class="box">
-		<h3>教育经历</h3>
-		<div class="list">
-			<div class="avator">
-				<span>金</span>
-			</div>
-			<div class="content">
-				<h2 class="rank"><small>#</small>1</h2>
-				<h4>Ricardo Flanagan</h4>
-				<p>Digital Artist</p>
-			</div>
-		</div>
-		<div class="list">
-			<div class="avator">
-				<span>木</span>
-			</div>
-			<div class="content">
-				<h2 class="rank"><small>#</small>2</h2>
-				<h4>Christina Shaw</h4>
-				<p>Photoshop Expert</p>
-			</div>
-		</div>
-		<div class="list">
-			<div class="avator">
-				<span>水</span>
-			</div>
-			<div class="content">
-				<h2 class="rank"><small>#</small>3</h2>
-				<h4>Christina Shaw</h4>
-				<p>Photoshop Expert</p>
-			</div>
-		</div>
-		<div class="list">
-			<div class="avator">
-				<span>火</span>
-			</div>
-			<div class="content">
-				<h2 class="rank"><small>#</small>4</h2>
-				<h4>Christina Shaw</h4>
-				<p>Photoshop Expert</p>
-			</div>
-		</div>
-		<div class="list">
-			<div class="avator">
-				<span>土</span>
-			</div>
-			<div class="content">
-				<h2 class="rank"><small>#</small>5</h2>
-				<h4>Christina Shaw</h4>
-				<p>Photoshop Expert</p>
-			</div>
-		</div>
-		<div class="list">
-			<div class="avator">
-				<span>土</span>
-			</div>
-			<div class="content">
-				<h2 class="rank"><small>#</small>5</h2>
-				<h4>Christina Shaw</h4>
-				<p>Photoshop Expert</p>
-			</div>
-		</div>
-		<div class="list">
-			<div class="avator">
-				<span>土</span>
-			</div>
-			<div class="content">
-				<h2 class="rank"><small>#</small>5</h2>
-				<h4>Christina Shaw</h4>
-				<p>Photoshop Expert</p>
-			</div>
-		</div>
-	</div>
-</section>
+
 </body>
 </html>
